@@ -62,7 +62,7 @@ Information about the Nobel Prizes and the Nobel Prize Laureates.
 * [API documentation](https://olexxandr.github.io/nobel-laureates-app/) is hosted with help of [GitHub](https://docs.github.com/en/pages) 
 ## UI ReactJS
 
-Frontend uses [ReactJS](https://reactjs.org/) and [Material UI framework] (https://mui.com/material-ui/)
+Frontend uses [ReactJS](https://reactjs.org/) and [Material UI framework](https://mui.com/material-ui/)
 * [Material UI table](https://mui.com/material-ui/react-table/)
   ![image info](./screenshots/table.png)
 
