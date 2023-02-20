@@ -1,0 +1,12 @@
+{
+  "extends": "../.eslintrc.json",
+  "env": {
+    "jest": true
+  },
+
+  "rules": {
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
+    "no-template-curly-in-string": "off",
+    "import/namespace": "warn"
+  }
+}
