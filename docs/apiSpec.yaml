@@ -1,0 +1,92 @@
+swagger: '2.0'
+info:
+  title: 'Nobel Prize Laureates Per Country'
+  description: 'Information about the Nobel Prizes and the Nobel Prize Laureates'
+  version: '2.0'
+
+host: api.nobelprize.org
+basePath: /2.0
+schemes:
+  - http
+  - https
+
+paths:
+  '/api/laureate-count':
+    get:
+      description: Obtain information about all Nobel Prizes laureates per country.
+      produces:
+        - application/json
+
+      parameters:
+        - name: sort
+          in: query
+          description: The sort order (result is sorted by number of nobel laureates per country)
+          type: string
+          enum: ['asc', 'desc']
+
+        - name: v
+          in: query
+          description: API version
+          type: integer
+          minimum: 1
+
+      responses:
+        '200':
+          description: Successful call of Nobel Prize(s) according to the filled fields
+          schema:
+            $ref: '#/definitions/nobelPrizesResult'
+
+        '400':
+          $ref: '#/responses/BadRequest'
+
+        '404':
+          $ref: '#/responses/NotFound'
+
+
+definitions:
+
+  nobelPrizesResult:
+    description: Successful response for Nobel Prize search
+    type: array
+    items:
+        $ref: '#/definitions/nobelPrizePerCountry'
+
+
+  nobelPrizePerCountry:
+    description: Model containing Nobel Prize information per country
+    type: object
+    properties:
+      country:
+        type: string
+        example: "USA"
+      code:
+        type: string
+        example: "US"
+      counter:
+        type: integer
+        example: 100
+
+
+  error:
+    type: object
+    properties:
+      code:
+        type: string
+        example: 404
+      message:
+        type: string
+        example: There is not Laureate born that date
+    required:
+      - code
+      - message
+
+responses:
+  'BadRequest':
+    description: Bad request.
+    schema:
+      $ref: '#/definitions/error'
+
+  'NotFound':
+    description: Not Found.
+    schema:
+      $ref: '#/definitions/error'
