@@ -2,7 +2,9 @@
 Information about the Nobel Prizes and the Nobel Prize Laureates.
 
 ## Getting Started
-* Install `npm` dependencies for NodeJS backend service :
+* Install `node` v.14:
+
+* Install `npm` dependencies for NodeJS backend service:
     ```
     npm install --save-dev
     ```
