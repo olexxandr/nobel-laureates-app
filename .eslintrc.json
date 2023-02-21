@@ -1,0 +1,44 @@
+{
+  "root": true,
+
+  "parser": "@typescript-eslint/parser",
+
+  "parserOptions": {
+    "ecmaVersion": 2017
+  },
+  "plugins": ["@typescript-eslint"],
+  "extends": [
+    "airbnb-base",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended",
+    "plugin:sonarjs/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/typescript"
+  ],
+  "env": {
+    "es6": true,
+    "node": true
+  },
+  "rules": {
+    "import/prefer-default-export": "off",
+    "filenames/match-regex": "off",
+    "no-shadow": "error",
+    "new-cap": "off",
+    "prefer-object-spread/prefer-object-spread": "off",
+    "node/no-missing-require": "off",
+    "node/no-unsupported-features/es-syntax": "off",
+    "node/no-missing-import": "off",
+    "import/no-unresolved": "error",
+    "import/extensions": "off",
+    "no-unused-vars": "error",
+    "no-unused-expressions": "error",
+    "sonarjs/cognitive-complexity": ["error", 25],
+    "sonarjs/no-duplicate-string": "warn",
+    "camelcase": ["error", {
+      "allow": ["updated_on", "updated_by", "created_at", "updated_at", "landline_check", "handoff_id",
+        "handoff_version", "channel_type_id", "APPlE_TWILIO", "SMS_TWILIO", "status_code", "sub_type",
+        "phone_number", "quick_reply"
+      ]}]
+  }
+}
